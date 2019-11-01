@@ -47,7 +47,9 @@
             .title {
                 font-size: 84px;
             }
-
+            .links {
+                padding-bottom: 65px;
+            }
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -64,19 +66,28 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-
-
+        <div class="flex-center position-ref">
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
                 <div class="links">
                     <a href="{{ url('/home') }}">Next gameday</a>
                     <a href="{{ url('/all') }}">All matches this season</a>
                     <a href="{{ url('/teams') }}">Teams</a>
                 </div>
+            <table>
+            <tbody>
+            <tr>
+            <td>Team Name</td>
+            <td>Wins #</td>
+            <td>Losses #</td>
+            </tr>
+                @foreach ($teams as $team)
+                <tr>
+                <td>{{$team['name']}}</td>
+                <td>{{$team['wins']}}</td>
+                <td>{{$team['losses']}}</td>
+                </tr> 
+                @endforeach
+            </table>
             </div>
         </div>
     </body>

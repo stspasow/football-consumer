@@ -15,10 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//testing
-Route::get(‘guzzle’, function () {
-	//echo '<pre>'; // Use this for JSON or ARRAY purposes
-	$client = new \GuzzleHttp\Client();
-	$request = $client->request('GET', 'https://www.google.co.in');
-	print_r($request->getBody()->getContents());
-});
+Route::get('/home', 'GamedayController@upcoming')->name('upcoming');
+Route::get('/all', 'GamedayController@all')->name('all');
+Route::get('/teams', 'GamedayController@teams')->name('teams');
+Route::post('/search', 'GamedayController@searchGoalgetter')->name('search');
